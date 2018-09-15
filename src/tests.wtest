@@ -37,7 +37,7 @@ test "contenedor portuario" {
 	contenedorPortuario.sumarCosa(knightRider)
 	contenedorPortuario.sumarCosa(bumblebee)
 	assert.equals(1400, contenedorPortuario.peso())
-	assert.equals([ bumblebee.peligrosidad() ], contenedorPortuario.peligrosidad())
+	assert.equals(15, contenedorPortuario.peligrosidad())
 }
 
 test "embalaje seguridad" {
