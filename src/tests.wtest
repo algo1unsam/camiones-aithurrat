@@ -1,0 +1,49 @@
+import Transportables.*
+import Vehiculos.*
+import Rutas.*
+import Deposito.*
+
+test "llenar un camion" {
+	deposito.recibirCarga(knightRider)
+	deposito.recibirCarga(ladrillos)
+	deposito.cargarCamion()
+	assert.equals(480, camion.cargaDisponible())
+}
+
+test "se vacio el deposito" {
+	deposito.recibirCarga(knightRider)
+	deposito.recibirCarga(ladrillos)
+	deposito.cargarCamion()
+	assert.that(deposito.verDeposito().isEmpty())
+}
+
+test "el camion no puede llevar todo" {
+	deposito.recibirCarga(knightRider)
+	deposito.recibirCarga(bumblebee)
+	assert.throwsExceptionWithMessage("no hay carga disponible", { => deposito.cargarCamion()})
+}
+
+test "la motoneta no puede llevar todo" {
+	deposito.recibirCarga(bumblebee)
+	assert.throwsExceptionWithMessage("no hay carga disponible o carga muy peligrosa", { => deposito.cargarMotoneta()})
+}
+
+test "la motoneta lleva ladrillos" {
+	deposito.recibirCarga(ladrillos)
+	assert.notThat(motoneta.verCarga().contains(ladrillos))
+}
+
+test "contenedor portuario" {
+	contenedorPortuario.sumarCosa(knightRider)
+	contenedorPortuario.sumarCosa(bumblebee)
+	assert.equals(1400, contenedorPortuario.peso())
+	assert.equals([ bumblebee.peligrosidad() ], contenedorPortuario.peligrosidad())
+}
+
+test "embalaje seguridad" {
+	embalajeSeguridad.pesoEmbalaje(bumblebee)
+	embalajeSeguridad.cuanPeligroso(bumblebee)
+	assert.equals(800, embalajeSeguridad.peso())
+	assert.equals(7.5,embalajeSeguridad.peligrosidad())
+	
+}
