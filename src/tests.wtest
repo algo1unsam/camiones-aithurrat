@@ -3,6 +3,9 @@ import Vehiculos.*
 import Rutas.*
 import Deposito.*
 
+// TODO NO COMPILA!!!!!!
+// así que no lo pude correr
+// igual están muy bien los tests agus!!
 test "llenar un camion" {
 	deposito.recibirCarga(knightRider)
 	deposito.recibirCarga(ladrillos)

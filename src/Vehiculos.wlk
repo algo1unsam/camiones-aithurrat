@@ -19,6 +19,7 @@ object camion {
 		cargas.remove(cosa)
 	}
 
+	// TODO está raro el nombre
 	method verCosa(cosa) {
 		return cargas.contains(cosa)
 	}

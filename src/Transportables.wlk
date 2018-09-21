@@ -68,6 +68,9 @@ object ladrillos {
 
 }
 
+// TODO la idea era que el contenedor tenga una lista de las cosas que contiene
+// por otro lado al hacer peso(cosa) perdiste el polimorfismo, el contenedor
+// no es polimórfico con los demas transportables
 object contenedorPortuario {
 
 	var peso = 100
@@ -87,6 +90,8 @@ object contenedorPortuario {
 
 }
 
+// TODO lo mismo acá, la idea es tener configurada la cosa ADENTRO de este objeto
+// así acá también se puede mantener el polimorfismo
 object embalajeSeguridad {
 
 	var peso = 0
